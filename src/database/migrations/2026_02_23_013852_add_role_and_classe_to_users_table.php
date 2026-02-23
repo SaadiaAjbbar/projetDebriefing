@@ -1,3 +1,6 @@
+
+
+
 <?php
 
 use Illuminate\Database\Migrations\Migration;
@@ -19,6 +22,11 @@ return new class extends Migration
             $table->string('password');
             $table->rememberToken();
             $table->timestamps();
+            $table->string('role')->default('student');
+            $table->foreignId('classe_id')
+             ->nullable()
+             ->constrained('classes')
+             ->nullOnDelete();
         });
 
         Schema::create('password_reset_tokens', function (Blueprint $table) {

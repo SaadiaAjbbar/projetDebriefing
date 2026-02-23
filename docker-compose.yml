@@ -3,6 +3,7 @@ services:
   php:
    build: .
    container_name: php_debriefing
+   restart: always
    ports:
      - "8080:80"
    volumes:
